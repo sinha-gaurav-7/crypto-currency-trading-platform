@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package trading.v1;
+
+message PriceUpdate {
+  string ticker = 1;
+  string price = 2;
+  int64 timestamp = 3;
+}
+
+message AddTickerRequest {
+  string ticker = 1;
+}
+
+message RemoveTickerRequest {
+  string ticker = 1;
+}
+
+message SubscribeRequest {}
+
+message Empty {}
+
+message TradingStatus {
+  int32 active_tickers = 1;
+  int32 active_streams = 2;
+  repeated string tickers = 3;
+}
+
+message TickerInfo {
+  string ticker = 1;
+  bool is_active = 2;
+  int32 subscriber_count = 3;
+  optional PriceUpdate last_update = 4;
+}
+
+message TickerList {
+  repeated string tickers = 1;
+}
+
+message ErrorResponse {
+  string message = 1;
+  string code = 2;
+  map<string, string> details = 3;
+}
+
+message ConnectRequest {
+  string client_id = 1;
+}
+
+message DisconnectRequest {
+  string client_id = 1;
+}
+
+message ClientStats {
+  int32 active_clients = 1;
+  repeated string client_ids = 2;
+}
+
+message GetTickerInfoRequest {
+  string ticker = 1;
+}
+
+service TradingService {
+  rpc AddTicker(AddTickerRequest) returns (Empty);
+  rpc RemoveTicker(RemoveTickerRequest) returns (Empty);
+  rpc StreamPrices(SubscribeRequest) returns (stream PriceUpdate);
+  rpc GetTradingStatus(Empty) returns (TradingStatus);
+  rpc GetTickerInfo(GetTickerInfoRequest) returns (TickerInfo);
+  rpc GetActiveTickers(Empty) returns (TickerList);
+}
+
+service StreamingService {
+  rpc Connect(ConnectRequest) returns (stream PriceUpdate);
+  rpc Disconnect(DisconnectRequest) returns (Empty);
+  rpc GetClientStats(Empty) returns (ClientStats);
+}

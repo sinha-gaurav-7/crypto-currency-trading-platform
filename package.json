@@ -1,0 +1,13 @@
+{
+    "name": "project-pluto-streaming-app",
+    "private": true,
+    "scripts": {
+      "install:all": "pnpm install --recursive",
+      "start": "./run.sh"
+    },
+    "devDependencies": {
+      "@bufbuild/buf": "^1.28.1",
+      "@bufbuild/protoc-gen-es": "^1.4.2",
+      "@connectrpc/protoc-gen-connect-es": "^1.1.4"
+    }
+}

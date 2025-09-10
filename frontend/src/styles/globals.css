@@ -1,0 +1,219 @@
+/* Global styles for the trading dashboard */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Main dashboard layout and title */
+.trading-dashboard {
+  padding: 2rem;
+  font-family: system-ui;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.dashboard-title {
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+/* Connection status indicators */
+.connection-status {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  border: 1px solid;
+}
+
+.connection-status.connected {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+.connection-status.disconnected {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+}
+
+/* Form styling for adding tickers */
+.add-ticker-form {
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  background-color: #f9f9f9;
+}
+
+.form-title {
+  margin-top: 0;
+}
+
+.form-input-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.ticker-input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  flex: 1;
+}
+
+.add-button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.add-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.add-button:not(:disabled):hover {
+  background-color: #0056b3;
+}
+
+/* Error and validation message styling */
+.error-message {
+  color: red;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.validation-error {
+  color: #856404;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 4px;
+}
+
+.error-icon {
+  font-size: 1rem;
+}
+
+.ticker-input.error {
+  border-color: #dc3545;
+  background-color: #fff5f5;
+}
+
+/* Ticker list and grid layout */
+.ticker-list-title {
+  margin-bottom: 1rem;
+}
+
+.empty-tickers-message {
+  color: #666;
+  text-align: center;
+  padding: 2rem;
+}
+
+.ticker-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Individual ticker card styling */
+.ticker-card {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticker-info {
+  flex: 1;
+}
+
+.ticker-symbol {
+  margin: 0;
+  color: #333;
+}
+
+.ticker-price {
+  margin: 0.25rem 0 0 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.ticker-price.loading {
+  color: #666;
+}
+
+.ticker-price.loaded {
+  color: #2e7d32;
+}
+
+.ticker-timestamp {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.remove-button {
+  padding: 0.25rem 0.75rem;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.remove-button:hover {
+  background-color: #c82333;
+}
+
+/* Instructions section styling */
+.instructions {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #e9ecef;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.instructions-title {
+  margin-top: 0;
+}
+
+.instructions-list {
+  margin-bottom: 0;
+}
+
+/* Utility classes for common styling */
+.text-center {
+  text-align: center;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mt-0 {
+  margin-top: 0;
+}

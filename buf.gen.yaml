@@ -1,0 +1,10 @@
+version: v1
+plugins:
+  - plugin: buf.build/bufbuild/es:v1.4.2
+    out: backend/src/gen
+  - plugin: buf.build/bufbuild/es:v1.4.2
+    out: frontend/src/gen
+  - plugin: buf.build/connectrpc/es:v1.1.4
+    out: backend/src/gen
+  - plugin: buf.build/connectrpc/es:v1.1.4
+    out: frontend/src/gen
